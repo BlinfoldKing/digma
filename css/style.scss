@@ -3,6 +3,12 @@
  * {
 }
 
+.navbar-end {
+    a {
+        color: black
+    }
+}
+
 .home {
 	padding: 30px;
 	p {
@@ -68,7 +74,7 @@
         justify-content: center;
 		.image {
         }
-        
+
         .map {
             border: solid 1px red;
             width: calc(100% - 440px);
