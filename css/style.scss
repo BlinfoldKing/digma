@@ -1,0 +1,77 @@
+--- 
+---
+ * {
+}
+
+.home {
+	padding: 30px;
+	p {
+		padding: 30px;
+	}
+}
+
+.bg {
+	transform: translateY(-180px);
+	background: url('/assets/bg_digma.png');
+	content: "";
+	height: 879px;
+	width: 737px;
+	position: absolute;
+	right: 0;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.companies {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	.company {
+		border-right: solid 1px black;
+		.image {
+			margin: auto;
+			content: "";
+			width: 60px;
+			height: 60px;
+			border: solid 1px red;
+		}
+		&:last-child {
+			border: none;
+		}
+	}
+
+	padding-top: 100px;
+	padding-bottom: 180px;
+}
+
+.galeri {
+	margin: 120px 0;
+	.content {
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+		.image {
+			content: "";
+			border: solid 1px red;
+			width: 100px;
+			height: 100px;
+		}
+	}
+}
+
+.kontak {
+	margin: 120px 0;
+	.content {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+		.image {
+        }
+        
+        .map {
+            border: solid 1px red;
+            width: calc(100% - 440px);
+        }
+	}
+}
