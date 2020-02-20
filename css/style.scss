@@ -127,7 +127,11 @@
 
 .galeri {
 	margin: 120px 0;
+	
 	.content {
+
+	
+	
         padding-top: 30px;
         display: flex;
         justify-content: center;
@@ -137,6 +141,13 @@
 			height: 200px;
 			margin: 0 15px
 		}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		.image {
+			margin: 30px;
+		}	
+	}
 	}
 }
 
