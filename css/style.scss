@@ -130,12 +130,12 @@
 	.content {
         padding-top: 30px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
 		.image {
 			content: "";
-			border: solid 1px red;
-			width: 100px;
-			height: 100px;
+			width: 200px;
+			height: 200px;
+			margin: 0 15px
 		}
 	}
 }
