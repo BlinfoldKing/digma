@@ -80,30 +80,93 @@ layout: default
             <h4 class="title is-4">Galeri</h4>
             <div class="content container">
                 <div class="image">
-                    <img src="/assets/digmagallery1.png" alt="">
+                    <img src="/assets/digmagallery1.png" onclick="toggleGallery('1')" alt="">
+                    <div class="modal" id="modal-1">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery1.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('1')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
                 <div class="image">
-                    <img src="/assets/digmagallery2.png" alt="">
+                    <img src="/assets/digmagallery2.png" onclick="toggleGallery('2')" alt="">
+                    <div class="modal" id="modal-2">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery2.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('2')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
                 <div class="image">
-                    <img src="/assets/digmagallery3.png" alt="">
+                    <img src="/assets/digmagallery3.png" onclick="toggleGallery('3')" alt="">
+                    <div class="modal" id="modal-3">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery3.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('3')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
                 <div class="image">
-                    <img src="/assets/digmagallery4.png" alt="">
+                    <img src="/assets/digmagallery4.png" onclick="toggleGallery('4')" alt="">
+                    <div class="modal" id="modal-4">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery4.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('4')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
                 <div class="image">
-                    <img src="/assets/digmagallery5.png" alt="">
+                    <img src="/assets/digmagallery5.png" onclick="toggleGallery('5')" alt="">
+                    <div class="modal" id="modal-5">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery5.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('5')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
                 <div class="image">
-                    <img src="/assets/digmagallery6.png" alt="">
+                    <img src="/assets/digmagallery6.png" onclick="toggleGallery('6')" alt="">
+                    <div class="modal" id="modal-6">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="/assets/digmagallery6.png" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('6')" class="modal-close is-large" aria-label="close"></button>
+                    </div>
                 </div>
+                <script>
+                    function toggleGallery(id) {
+                        document.getElementById("modal-" + id).classList.add("is-active")
+                    }
+
+                    function closeGallery(id) {
+                        document.getElementById("modal-" + id).classList.remove("is-active")
+                    }    
+                </script>
             </div>
         </div>
 
         <div id="contact" class="kontak">
             <h4 class="title is-4">Kontak</h4>
             <div class="content">
-                <div class="image" style="margin-right: 20px;">
+                <div class="image" style="">
                     <img src="/assets/digmaposter.png" alt="">
                 </div>
                 <iframe class="map"
