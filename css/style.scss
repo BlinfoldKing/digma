@@ -36,6 +36,7 @@
 		img, video {
 			object-fit: cover;
 			border: black solid 3px;
+			height: auto;
 		}
 		p {
 			padding: 100px 30px;
@@ -208,6 +209,14 @@
 	}
 
 	
+}
+
+.linimasa {
+	margin-top: 60px;
+	img {
+		padding: 0 10vw;
+		width: 100%;
+	}
 }
 
 #footer {
