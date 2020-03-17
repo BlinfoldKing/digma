@@ -1,6 +1,7 @@
 --- 
 ---
  * {
+	 font-family: 'Lato';
 }
 
 .navbar-end {
@@ -27,7 +28,10 @@
 
 
 .home {
-	padding: 30px;
+	padding: 30px 100px;
+	@media (max-width: 768px) {
+		padding: 30px;	
+	}
 	p {
 		padding: 30px;
 	}
@@ -40,6 +44,7 @@
 		}
 		p {
 			padding: 100px 30px;
+			padding-bottom: 30px;
 		}
 	}
 }
@@ -180,7 +185,6 @@
 }
 
 .kontak {
-	margin: 120px 0;
 	.content {
         padding-top: 30px;
         display: flex;
@@ -237,5 +241,89 @@
 	bottom: 5vw;
 	a {
 		color: black;
+	}
+}
+
+#container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hide {
+	display: none !important;
+}
+
+#blog {
+	display: flex;
+	flex-direction: column;
+	#header {
+		margin: auto;
+		margin: 30px auto 60px auto;
+		@media (max-width: 768px) {
+			margin-bottom: 60px;	
+		}
+	}
+
+	.post-list {
+		margin-left: 120px;
+		&.home-view {
+			margin: 0;
+		}
+		@media (max-width: 768px) {
+			margin: 0;
+			.title {
+				margin-left: 30px;
+				font-size: 20px;
+			}
+		}
+	}
+	.post-item {
+		margin-top: 60px;
+		margin-left: 30px;
+		display: flex;
+		@media (max-width: 768px) {
+			flex-direction: column;
+			margin: auto;
+			padding: 30px;
+			text-align: center;
+		}
+		.image {
+			margin-right: 30px;
+			align-items: center;
+			width: 200px;
+			height: 200px;
+			background: #c4c4c4;
+			@media (max-width: 768px) {
+				margin: auto;
+				margin-bottom: 30px;
+			}
+		}
+
+		.content {
+			font-size: 18px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			@media (max-width: 768px) {
+				padding: 0 30px;
+			}		
+		}
+	}
+}
+
+.link-button {
+	display: block;
+	border: solid 1px #c4c4c4;
+	color: #c4c4c4;
+	padding: 10px 25px;
+	border-radius: 35px;
+	margin: 60px auto;
+	width: fit-content;
+
+	&:hover {
+		color: white;
+		background: #c4c4c4;
 	}
 }
