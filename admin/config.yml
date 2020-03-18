@@ -27,8 +27,8 @@ collections: # A list of collections the CMS should be able to edit
         file: "_data/gallery.yml"
         fields:
           - label: Images
-          - name: images
-          - widget: list
-          - field:
+            name: images
+            widget: list
+            field:
               - {label: "Title", name: "title", widget: string}
               - {label: "Image", name: "image", widget: image}
