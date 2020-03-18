@@ -10,50 +10,38 @@ layout: default
     </a>
     <div class="post-list">
         <div class="title is-4">Artikel</div>
-        <div class="post-item">
-            <div class="image">
+        {% for post in paginator.posts limit: 4 %}
+        <a href="{{post.url}}">
+            <div class="post-item">
+                <div class="image">
 
+                </div>
+                <div class="content">
+                    <div class="blog-title"><strong>{{post.title}}</strong></div>
+                    <div class="excerpt">lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi ipsum diam arcu
+                        neque
+                        gravida dictumst accumsan mauris viverra.</div>
+                </div>
             </div>
-            <div class="content">
-                <div class="blog-title"><strong>hello world</strong></div>
-                <div class="excerpt">lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi ipsum diam arcu
-                    neque
-                    gravida dictumst accumsan mauris viverra.</div>
-            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if paginator.page > 1 %}
+        <div class="arrow prev" onclick="">
+            {% if paginator.page == 2 %}
+            <a href="{{'/blog'}}" class="fas fa-chevron-circle-left"></a>
+            {% else %}
+            <a href="{{'/blog/page' | append: paginator.previous_page}}" class="fas fa-chevron-circle-left"></a>
+            {% endif %}
         </div>
-        <div class="post-item">
-            <div class="image">
+        {% endif %}
 
-            </div>
-            <div class="content">
-                <div class="blog-title"><strong>hello world</strong></div>
-                <div class="excerpt">lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi ipsum diam arcu
-                    neque
-                    gravida dictumst accumsan mauris viverra.</div>
-            </div>
+        {% if paginator.page < paginator.total_pages %}
+        <div class="arrow next" onclick="">
+            <a href="{{'/blog/page' | append: paginator.next_page}}" class="fas fa-chevron-circle-right"></a>
         </div>
-        <div class="post-item">
-            <div class="image">
-
-            </div>
-            <div class="content">
-                <div class="blog-title"><strong>hello world</strong></div>
-                <div class="excerpt">lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi ipsum diam arcu
-                    neque
-                    gravida dictumst accumsan mauris viverra.</div>
-            </div>
-        </div>
-        <div class="post-item">
-            <div class="image">
-
-            </div>
-            <div class="content">
-                <div class="blog-title"><strong>hello world</strong></div>
-                <div class="excerpt">lorem ipsum dolor sit amet, consectetur adipiscing elit. morbi ipsum diam arcu
-                    neque
-                    gravida dictumst accumsan mauris viverra.</div>
-            </div>
-        </div>
+        {% endif %}
     </div>
 
     <a href="/" class="link-button">kembali ke home</a>

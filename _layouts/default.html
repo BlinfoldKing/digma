@@ -32,7 +32,7 @@
         <script>
             const {pathname} = window.location
 
-            if (pathname === '/blog/') {
+            if (pathname.includes('blog')) {
                 document.getElementById("navbar").classList.add("hide")
             }
         </script>
