@@ -87,79 +87,33 @@ layout: default
 
         <div class="galeri" id="gallery">
             <h4 class="title is-4">Galeri</h4>
-            <div class="content container">
-                <div class="image">
-                    <img src="/assets/digmagallery1.png" onclick="toggleGallery('1')" alt="">
-                    <div class="modal" id="modal-1">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery1.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('1')" class="modal-close is-large" aria-label="close"></button>
-                    </div>
+            <div class="content container" id="carousel-demo" class="carousel">
+                {% for image in site.data.gallery.images %}
+                <div class="image item-{{forloop.index}}">
+                    <img src="{{image.image}}" onclick="toggleGallery('1')" alt="">
                 </div>
-                <div class="image">
-                    <img src="/assets/digmagallery2.png" onclick="toggleGallery('2')" alt="">
-                    <div class="modal" id="modal-2">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery2.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('2')" class="modal-close is-large" aria-label="close"></button>
+
+                {% endfor %}
+                <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+                <script>
+                    bulmaCarousel.attach('#carousel-demo', {
+                        slidesToScroll: 1,
+                        slidesToShow: 4,
+                        pagination: false
+                    });
+                </script>
+                {% for image in site.data.gallery.images%}
+                <div class="modal" id="modal-1">
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <p class="image">
+                            <img src="{{image.image}}" alt="">
+                        </p>
                     </div>
+                    <button onclick="closeGallery('{{forloop.index}}')" class="modal-close is-large"
+                        aria-label="close"></button>
                 </div>
-                <div class="image">
-                    <img src="/assets/digmagallery3.png" onclick="toggleGallery('3')" alt="">
-                    <div class="modal" id="modal-3">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery3.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('3')" class="modal-close is-large" aria-label="close"></button>
-                    </div>
-                </div>
-                <div class="image">
-                    <img src="/assets/digmagallery4.png" onclick="toggleGallery('4')" alt="">
-                    <div class="modal" id="modal-4">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery4.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('4')" class="modal-close is-large" aria-label="close"></button>
-                    </div>
-                </div>
-                <div class="image">
-                    <img src="/assets/digmagallery5.png" onclick="toggleGallery('5')" alt="">
-                    <div class="modal" id="modal-5">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery5.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('5')" class="modal-close is-large" aria-label="close"></button>
-                    </div>
-                </div>
-                <div class="image">
-                    <img src="/assets/digmagallery6.png" onclick="toggleGallery('6')" alt="">
-                    <div class="modal" id="modal-6">
-                        <div class="modal-background"></div>
-                        <div class="modal-content">
-                            <p class="image">
-                                <img src="/assets/digmagallery6.png" alt="">
-                            </p>
-                        </div>
-                        <button onclick="closeGallery('6')" class="modal-close is-large" aria-label="close"></button>
-                    </div>
-                </div>
+                {%endfor%}
                 <script>
                     function toggleGallery(id) {
                         document.getElementById("modal-" + id).classList.add("is-active")
