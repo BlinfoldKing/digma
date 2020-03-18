@@ -19,13 +19,13 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Categories", name: "categories", widget: "string", required: false}
     meta: # Meta data fields. Just like fields, but without any preview element
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD hh:mm:ss"}
-  - name: "Gallery" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "gallery" # Used in the UI, ie.: "New Post"
+  - name: "gallery" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Gallery" # Used in the UI, ie.: "New Post"
     files:
       - label: "Gallery"
         name: "gallery"
         file: "_data/gallery.yml"
-        field:
+        fields:
           - label: Images
           - name: images
           - widget: list
