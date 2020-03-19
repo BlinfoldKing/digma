@@ -81,48 +81,62 @@ layout: default
         </div>
 
         <div class="linimasa" id="linimasa">
-            <h4 class="title is-4">Linimasa</h4>
+            <h4 class="title is-4" style="margin-bottom: 60px">Linimasa</h4>
             <img src="/assets/linimasa.png" alt="">
         </div>
 
         <div class="galeri" id="gallery">
             <h4 class="title is-4">Galeri</h4>
-            <div class="content container" id="carousel-demo" class="carousel">
-                {% for image in site.data.gallery.images %}
-                <div class="image item-{{forloop.index}}">
-                    <img src="{{image.image}}" onclick="toggleGallery('1')" alt="">
-                </div>
-
-                {% endfor %}
-                <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-                <script>
-                    bulmaCarousel.attach('#carousel-demo', {
-                        slidesToScroll: 1,
-                        slidesToShow: 4,
-                        pagination: false
-                    });
-                </script>
-                {% for image in site.data.gallery.images%}
-                <div class="modal" id="modal-1">
-                    <div class="modal-background"></div>
-                    <div class="modal-content">
-                        <p class="image">
-                            <img src="{{image.image}}" alt="">
-                        </p>
+            <div class="content-container">
+                <a class="fas fa-chevron-circle-left" onclick="cPrev()"></a>
+                <div class="content container" id="carousel-demo" class="carousel">
+                    {% for image in site.data.gallery.images %}
+                    <div class="image item-{{forloop.index}}">
+                        <img src="{{image.image}}" onclick="toggleGallery('1')" alt="">
                     </div>
-                    <button onclick="closeGallery('{{forloop.index}}')" class="modal-close is-large"
-                        aria-label="close"></button>
-                </div>
-                {%endfor%}
-                <script>
-                    function toggleGallery(id) {
-                        document.getElementById("modal-" + id).classList.add("is-active")
-                    }
 
-                    function closeGallery(id) {
-                        document.getElementById("modal-" + id).classList.remove("is-active")
-                    }    
-                </script>
+                    {% endfor %}
+                    <script
+                        src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+                    <script>
+                        const c = bulmaCarousel.attach('#carousel-demo', {
+                            slidesToScroll: window.innerWidth <= 768 ? 1 : 5,
+                            slidesToShow: 5,
+                            loop: true,
+                            pagination: false,
+                        });
+
+                        const cNext = () => {
+                            c[0].next();
+                        }
+
+                        const cPrev = () => {
+                            c[0].previous();
+                        }
+                    </script>
+                    {% for image in site.data.gallery.images%}
+                    <div class="modal" id="modal-1">
+                        <div class="modal-background"></div>
+                        <div class="modal-content">
+                            <p class="image">
+                                <img src="{{image.image}}" alt="">
+                            </p>
+                        </div>
+                        <button onclick="closeGallery('{{forloop.index}}')" class="modal-close is-large"
+                            aria-label="close"></button>
+                    </div>
+                    {%endfor%}
+                    <script>
+                        function toggleGallery(id) {
+                            document.getElementById("modal-" + id).classList.add("is-active")
+                        }
+
+                        function closeGallery(id) {
+                            document.getElementById("modal-" + id).classList.remove("is-active")
+                        }
+                    </script>
+                </div>
+                <a class="fas fa-chevron-circle-right" onclick="cNext()"></a>
             </div>
         </div>
         <div id="blog" class="home-view">
